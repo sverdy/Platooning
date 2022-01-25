@@ -11,10 +11,10 @@ extern DeviceDriverSet_Motor AppMotor;
 #define _is_print 1
 #define _Test_print 0
 
-#define MAX_DISTANCE 20
-#define DISTANCE_SECU 20
-#define TEMPS_INTERM 500000 //en us
-#define DISTANCE_DANGER 10
+#define MAX_DISTANCE 20  //Utilité ?
+#define DISTANCE_SECU 20 //Distance de sécurité
+#define TEMPS_INTERM 500000 //en us temps entre deux mesures
+#define DISTANCE_DANGER 10 //Distance max avant arrêt+
 
 
 ApplicationFunctionSet Application_FunctionSet;
@@ -43,7 +43,7 @@ function_xxx(long x, long s, long e) //f(x)
  * @param new_speed 
  * @return uint8_t 
  */
-static uint8_t asservissement_vitesse(float distance, uint8_t new_speed)
+static uint8_t asservissement_vitesse(float distance, uint8_t new_speed) //Asservissement basique avec capteur ultrason
 {
   if (distance < DISTANCE_DANGER)
   {
